@@ -406,6 +406,8 @@ jobs:
       - uses: actions/checkout@v6
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          fetch-tags: true
           persist-credentials: false
           allow-unsafe-pr-checkout: true
 
@@ -610,6 +612,8 @@ jobs:
       - uses: actions/checkout@v6
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          fetch-tags: true
           persist-credentials: false
           allow-unsafe-pr-checkout: true
 
@@ -643,6 +647,8 @@ jobs:
           test -f x265      && echo "8-bit CLI OK"
           test -f libx265.a && echo "8-bit static lib OK"
           ./x265 --version
+          echo "--- Unit tests ---"
+          ./test/TestBench
 
       # ── 10-bit ─────────────────────────────────────────────────────────────
       - name: Build 10-bit
@@ -662,6 +668,7 @@ jobs:
           make -j$(sysctl -n hw.logicalcpu)
           test -f x265 && echo "10-bit CLI OK"
           ./x265 --version
+          ./test/TestBench
 
       # ── 12-bit ─────────────────────────────────────────────────────────────
       - name: Build 12-bit
@@ -682,6 +689,7 @@ jobs:
           make -j$(sysctl -n hw.logicalcpu)
           test -f x265 && echo "12-bit CLI OK"
           ./x265 --version
+          ./test/TestBench
 
       # ── multilib (8+10+12) ─────────────────────────────────────────────────
       - name: Build multilib 12-bit component
@@ -785,6 +793,8 @@ jobs:
       - uses: actions/checkout@v6
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          fetch-tags: true
           persist-credentials: false
           allow-unsafe-pr-checkout: true
 
@@ -1004,6 +1014,8 @@ jobs:
       - uses: actions/checkout@v6
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          fetch-tags: true
           persist-credentials: false
           allow-unsafe-pr-checkout: true
 
@@ -1030,6 +1042,8 @@ jobs:
           if (!(Test-Path "build\8bit\Release\x265.exe")) { exit 1 }
           Write-Host "8-bit CLI OK"
           & "build\8bit\Release\x265.exe" --version
+          Write-Host "--- Unit tests ---"
+          & "build\8bit\test\Release\TestBench.exe"
 
       # ── 10-bit ─────────────────────────────────────────────────────────────
       - name: Build 10-bit
@@ -1043,6 +1057,7 @@ jobs:
           if (!(Test-Path "build\10bit\Release\x265.exe")) { exit 1 }
           Write-Host "10-bit CLI OK"
           & "build\10bit\Release\x265.exe" --version
+          & "build\10bit\test\Release\TestBench.exe"
 
       # ── 12-bit ─────────────────────────────────────────────────────────────
       - name: Build 12-bit
@@ -1056,6 +1071,7 @@ jobs:
           if (!(Test-Path "build\12bit\Release\x265.exe")) { exit 1 }
           Write-Host "12-bit CLI OK"
           & "build\12bit\Release\x265.exe" --version
+          & "build\12bit\test\Release\TestBench.exe"
 
       # ── multilib (8+10+12) ─────────────────────────────────────────────────
       - name: Build multilib 12-bit component
@@ -1129,7 +1145,7 @@ jobs:
           name: x265-windows-multilib
           path: |
             build/multilib/8bit/Release/x265.exe
-            build/multilib/8bit/Release/x265.dll
+            build/multilib/8bit/Release/libx265.dll
           retention-days: 3
 
   # ─────────────────────────────────────────────────────────────────────────────
