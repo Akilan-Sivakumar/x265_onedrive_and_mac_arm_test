@@ -627,7 +627,9 @@ jobs:
             ccache-macos-${{ matrix.variant }}-master-
 
       - name: Install build dependencies
-        run: brew install nasm ccache
+        run: |
+          brew untap aws/tap || true
+          brew install nasm ccache
 
       # ── 8-bit ──────────────────────────────────────────────────────────────
       - name: Build 8-bit
@@ -1582,7 +1584,9 @@ jobs:
           path: dist/multilib/8bit
 
       - name: Install runtime dependencies
-        run: brew install ffmpeg
+        run: |
+          brew untap aws/tap || true
+          brew install ffmpeg
 
       - name: Make binaries executable
         run: |
