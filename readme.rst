@@ -1,8 +1,5 @@
 =================
-x265 HEVC Encoder
-=================
-
-.. image:: https://github.com/Akilan-Sivakumar/x265_onedrive_and_mac_arm_test/workflows/X265%20CI/badge.svg
+x265 HEVC Encoder .. image:: https://github.com/Akilan-Sivakumar/x265_onedrive_and_mac_arm_test/workflows/X265%20CI/badge.svg
    :target: https://github.com/Akilan-Sivakumar/x265_onedrive_and_mac_arm_test/actions?query=workflow%3A%22X265+CI%22
    :alt: Build Status
 
@@ -13,6 +10,7 @@ x265 HEVC Encoder
 .. image:: https://img.shields.io/github/v/release/Akilan-Sivakumar/x265_onedrive_and_mac_arm_test
    :target: https://github.com/Akilan-Sivakumar/x265_onedrive_and_mac_arm_test/releases
    :alt: Latest Release
+=================
 
 | **Read:** | Online `documentation <http://x265.readthedocs.org/en/master/>`_ | Developer `wiki <https://github.com/Multicorewareinc/x265/wiki/>`_
 | **Download:** | `releases <http://ftp.videolan.org/pub/videolan/x265/>`_ 
