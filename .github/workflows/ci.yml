@@ -3139,7 +3139,16 @@ jobs:
           # Copy every versioned .so (libx265.so -> libx265.so.N -> libx265.so.N.M);
           # the binary's SONAME reference at runtime is the versioned file, not the
           # bare symlink, so a single-name copy leaves it missing.
-          cp -P prebuilt/libx265.so* "$DEST_DIR/" 2>/dev/null || true
+          if ls prebuilt/libx265.so* >/dev/null 2>&1; then
+            cp -P prebuilt/libx265.so* "$DEST_DIR/"
+            # x265's CMakeLists sets no $ORIGIN RPATH on Linux, so CMake's default
+            # behavior bakes the *build machine's* absolute build directory into
+            # the binary's RPATH. That path doesn't exist on this runner, so the
+            # dynamic linker won't find libx265.so.N there even though it's sitting
+            # right next to the binary. LD_LIBRARY_PATH is checked independently of
+            # RPATH, so point it at $DEST_DIR to make the copy actually loadable.
+            echo "LD_LIBRARY_PATH=$DEST_DIR:${LD_LIBRARY_PATH:-}" >> "$GITHUB_ENV"
+          fi
           echo "[OK] Placed pre-built ${{ matrix.build }} binary at $DEST_DIR"
 
       - name: "Run smoke-test.py (${{ matrix.build }})"
