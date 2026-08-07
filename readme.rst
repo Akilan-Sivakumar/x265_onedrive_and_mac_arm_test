@@ -2,6 +2,18 @@
 x265 HEVC Encoder
 =================
 
+.. image:: https://img.shields.io/github/actions/workflow/status/Akilan-Sivakumar/x265_onedrive_and_mac_arm_test/ci.yml
+   :target: https://github.com/Akilan-Sivakumar/x265_onedrive_and_mac_arm_test/actions
+   :alt: Build Status
+
+.. image:: https://img.shields.io/github/license/Akilan-Sivakumar/x265_onedrive_and_mac_arm_test
+   :target: https://github.com/Akilan-Sivakumar/x265_onedrive_and_mac_arm_test/blob/master/COPYING
+   :alt: License
+
+.. image:: https://img.shields.io/github/v/release/Akilan-Sivakumar/x265_onedrive_and_mac_arm_test
+   :target: https://github.com/Akilan-Sivakumar/x265_onedrive_and_mac_arm_test/releases
+   :alt: Latest Release
+
 | **Read:** | Online `documentation <http://x265.readthedocs.org/en/master/>`_ | Developer `wiki <https://github.com/Multicorewareinc/x265/wiki/>`_
 | **Download:** | `releases <http://ftp.videolan.org/pub/videolan/x265/>`_ 
 | **Interact:** | #x265 on freenode.irc.net | `x265-devel@videolan.org <http://mailman.videolan.org/listinfo/x265-devel>`_ | `Report an issue <https://github.com/Multicorewareinc/x265/issues>`_
