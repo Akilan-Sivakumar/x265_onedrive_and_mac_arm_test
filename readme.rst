@@ -1,5 +1,5 @@
 =================
-x265 HEVC Encoder
+x265 - HEVC Encoder
 =================
 
 | **Read:** | Online `documentation <http://x265.readthedocs.org/en/master/>`_ | Developer `wiki <https://github.com/Multicorewareinc/x265/wiki/>`_
